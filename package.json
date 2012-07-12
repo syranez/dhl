@@ -13,7 +13,7 @@
   }],
   "repositories": [{
     "type": "git",
-    "url":  "http://github.com/dhl-tracking/dhl-tracking.git"
+    "url":  "http://github.com/syranez/dhl-tracking.git"
   }],
   "author":  "syranez",
   "license": "MIT",
