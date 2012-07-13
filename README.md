@@ -20,11 +20,11 @@ Get delivery progress.
     });
 
 ## Installation
-`npm install dhl-tracking`
+`npm install dhl`
 
 ... or to install the package globally:
 
-`npm install -g dhl-tracking`
+`npm install -g dhl`
 
 ## License
 
