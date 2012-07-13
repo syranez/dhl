@@ -1,4 +1,4 @@
-var nolp = require('./nolp/nolp.js');
+var nolp = require('./lib/nolp/nolp.js');
 
 /**
  * retrieves the status of a package sent with german DHL

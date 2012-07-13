@@ -1,4 +1,4 @@
-var tracking = require('../lib/index.js');
+var tracking = require('../index.js');
 var _        = require('underscore');
 
 /**
