@@ -1,6 +1,6 @@
 {
   "name":        "dhl",
-  "version":     "1.0.0",
+  "version":     "1.0.1",
   "description": "A dhl packet tracking module",
   "keywords": [
     "dhl",
@@ -11,10 +11,10 @@
     "name": "Michael Nowack",
     "url":  "http://github.com/syranez"
   }],
-  "repositories": [{
+  "repository": {
     "type": "git",
     "url":  "http://github.com/syranez/dhl-tracking.git"
-  }],
+  },
   "author":  "syranez",
   "license": "MIT",
   "dependencies": {
