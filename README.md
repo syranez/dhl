@@ -1,16 +1,19 @@
-# dhl-tracking
+# dhl
 
-Querys the DHL status page at http://www.dhl.de/ asking the delivery progress of your packet.
+Querys the tracking page of a delivery service for the status of a sent package.
 
 ## Introduction
 
 Get delivery progress.
 
-    var tracking = require('dhl-tracking');
+    var tracking = require('dhl');
 
-    var packetId = 23;
+    var packet = {
+        "service": "dhl",
+        "id":      23
+    };
 
-    tracking.track(packetId, function (tracking) {
+    tracking.track(packet, function (tracking) {
 
         if (tracking.data.status === "100%") {
             console.log("arrived!");

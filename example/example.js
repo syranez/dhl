@@ -4,11 +4,25 @@ var _        = require('underscore');
 /**
  * pls use your own packet id
  *
- * @var number
+ * @var object
  */
-var packetId = 345128097436;
+var packet = {
+    /**
+     * service to query
+     *
+     * @var string
+     */
+    "service": "dhl",
 
-var result = tracking.track(packetId, function (tracking) {
+    /**
+     * packet id
+     *
+     * @var string
+     */
+    "id":      "345128097436"
+};
+
+var result = tracking.track(packet, function (tracking) {
 
     // check if tracking was not successful
     if (tracking.status === false) {

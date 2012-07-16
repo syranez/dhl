@@ -1,7 +1,20 @@
+var _    = require('underscore');
 var nolp = require('./lib/nolp/nolp.js');
+var ups  = require('./lib/ups/ups.js');
 
 /**
- * retrieves the status of a package sent with german DHL
+ * available delivery services
+ *
+ * @var array of strings
+ * @private
+ */
+var availableServices = [
+    "dhl",
+    "ups"
+];
+
+/**
+ * retrieves the status of a package sent with packet delivery service.
  *
  * A callback will be called with an tracking object:
  *
@@ -33,7 +46,7 @@ var nolp = require('./lib/nolp/nolp.js');
  *       ]
  *   }
  *
- * @param number packet your packet id
+ * @param object packet {"service": <string>, "id": <string>}
  * @param function callback get called with a status object
  * @returns boolean true on succesful call, false otherwise
  * @access public
@@ -41,17 +54,42 @@ var nolp = require('./lib/nolp/nolp.js');
  */
 this.track = function track (packet, callback) {
 
-    if (typeof packet != "number") {
-        console.log("dhl-tracking@track: no packet id defined.");
+    if (typeof packet == "undefined") {
+        console.log("No packet definition given.");
+        return false;
+    }
+
+    if (typeof packet.id == "undefined") {
+        console.log("No packet id given.");
+        return false;
+    }
+
+    if (typeof packet.service != "string") {
+        console.log("No packet service given.");
+        return false;
+    }
+
+    if (_.indexOf(availableServices, packet.service) === -1) {
+        console.log("Delivery service " + packet.service + " is not available.");
         return false;
     }
 
     if (typeof callback != "function") {
-        console.log("dhl-tracking@track: no callback function defined.");
+        console.log("No callback function given.");
         return false;
     }
 
-    nolp.get(packet, function (error, page) {
+    var deliveryService = null;
+    switch (packet.service) {
+    case "dhl":
+        deliveryService = nolp;
+        break;
+    case "ups":
+        deliveryService = ups;
+        break;
+    }
+
+    deliveryService.get(packet.id, function (error, page) {
 
         if (error !== null) {
 
@@ -68,7 +106,7 @@ this.track = function track (packet, callback) {
             return;
         }
 
-        nolp.parse(page, function (error, track) {
+        deliveryService.parse(page, function (error, track) {
 
             if (error !== null) {
                 callback({
