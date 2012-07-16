@@ -69,7 +69,7 @@ this.track = function track (packet, callback) {
         return false;
     }
 
-    if (_.indexOf(availableServices, packet.service) === -1) {
+    if (!this.isAvailableService(packet.service)) {
         console.log("Delivery service " + packet.service + " is not available.");
         return false;
     }
@@ -137,3 +137,24 @@ this.track = function track (packet, callback) {
 
     return true;
 };
+
+/**
+ * checks if service is available.
+ *
+ * @param string service name of service
+ * @return boolean
+ * @access public
+ * @final
+ */
+this.isAvailableService = function isAvailableService (service) {
+
+    if (typeof service == "undefined") {
+        return false;
+    }
+
+    if (_.indexOf(availableServices, service) === -1) {
+        return false;
+    }
+
+    return true;
+}
