@@ -34,9 +34,9 @@ var availableServices = [
  *           // there can be zero to Math.Infinity entries here.
  *           "steps": [
  *                {
- *                    "date":     <string> // dhl-formated date as string
+ *                    "date":     <string> // Unix Timestamp
  *                    "location": <string> // location of the step
- *                    "status":   <string> // message (german)
+ *                    "status":   <string> // message
  *                }
  *           ]
  *       },
