@@ -1,6 +1,6 @@
 {
   "name":        "dhl",
-  "version":     "1.1.1-beta",
+  "version":     "1.1.2-beta",
   "description": "A dhl/ups packet tracking module",
   "keywords": [
     "dhl",

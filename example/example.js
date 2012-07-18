@@ -35,7 +35,7 @@ var result = tracking.track(packet, function (tracking) {
     }
 
     // test whether packet already arrived (you should have got it then :)
-    if (tracking.data.status === "100%") {
+    if (tracking.data.arrived === true) {
         console.log("arrived!");
     } else {
         console.log("not yet :(");

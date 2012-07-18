@@ -1,3 +1,17 @@
+## 1.1.2-beat (aka ups feature)
+
+* status of ups packet is retrieved now
+* format change of data:
+
+    {
+        "arrived": <boolean>,
+        "status":  <string>,
+        "steps":   [
+        ],
+    }
+
+    See lib/model.js
+
 ## 1.1.1-beta (aka ups feature)
 
 * steps can now be parsed

@@ -15,12 +15,17 @@ Get delivery progress.
 
     tracking.track(packet, function (tracking) {
 
-        if (tracking.data.status === "100%") {
+        if (tracking.data.arrived === true) {
             console.log("arrived!");
         } else {
             console.log("not yet :(");
         }
     });
+
+## Available delivery services
+
+* dhl
++ ups
 
 ## Installation
 `npm install dhl`

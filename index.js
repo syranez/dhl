@@ -27,7 +27,10 @@ var availableServices = [
  *      // contains tracking data to the packet
  *      "data": {
  *
- *           // a string containing the progress in percent (mostly "0%" to "100%")
+ *           // flag to sign wether packet has arrived ord not.
+ *           "arrived": <boolean>,
+ *
+ *           // a string containing the current delivery state (delivery service dependent)
  *           "status": <string>,
  *
  *           // an array of objects explaining the progress in detail
@@ -79,15 +82,7 @@ this.track = function track (packet, callback) {
         return false;
     }
 
-    var deliveryService = null;
-    switch (packet.service) {
-    case "dhl":
-        deliveryService = nolp;
-        break;
-    case "ups":
-        deliveryService = ups;
-        break;
-    }
+    var deliveryService = getDeliveryService(packet.service);
 
     deliveryService.get(packet.id, function (error, page) {
 
@@ -122,15 +117,29 @@ this.track = function track (packet, callback) {
                 return;
             }
 
-            callback({
-                "status": true,
-                "data": {
-                    "status": track.status,
-                    "steps":  track.steps
-                },
-                "issues": [
-                    // no issues \o/
-                ]
+            deliveryService.normalize(track, function (error, model) {
+
+                if (error !== null) {
+                    callback({
+                        "status": false,
+                        "data": {
+                            // no data sadly :(
+                        },
+                        "issues": [
+                            "Could not normalize parsed data."
+                        ]
+                    });
+
+                    return;
+                }
+
+                callback({
+                    "status": true,
+                    "data":   model,
+                    "issues": [
+                        // no issues \o/
+                    ]
+                });
             });
         });
     });
@@ -157,4 +166,24 @@ this.isAvailableService = function isAvailableService (service) {
     }
 
     return true;
+}
+
+/**
+ * gives the delivery service
+ *
+ * @param string serviceName name of delivery service
+ * @return controller|null іf serviceName could not map
+ * @access private
+ * @final
+ */
+function getDeliveryService (serviceName) {
+
+    switch (serviceName) {
+    case "dhl":
+        return nolp;
+    case "ups":
+        return ups;
+    }
+
+    return null;
 }
