@@ -25,7 +25,7 @@ Get delivery progress.
 ## Available delivery services
 
 * dhl
-+ ups
+* ups
 
 ## Installation
 `npm install dhl`
@@ -33,6 +33,26 @@ Get delivery progress.
 ... or to install the package globally:
 
 `npm install -g dhl`
+
+## Using
+
+The version scheme is this:
+
+    {major-release}-{feature-release}-{bugfixes/maintaing}
+
+Major­release numbers do not change so much. Indeed I have no plans to use some other digit than 1.
+Feature-release numbers change if I introduce new features (e. g. the ups feature pushed dhl to 1.2.0 from 1.1.1).
+Bugfixes/maintaining numbers increment every time I fix or do some maintaining stuff. Nothing is intended to break.
+
+* dhl as dependency in a node module
+
+Therefore you can safely glob the last part of version, benefiting of bugfixes and 
+
+You can of course use dhl as dependency in your module. You have this version options:
+
+* hard version, e. g. 1.2.0 (very safe, nothing breaks, but you will not get new stuff)
+* bugfixes version, e. g. 1.2.* (safe, nothing __should__ break, bugs will be fixed.)
+* bleeding edge version, e. g. 1.* or even * (not safe, something will break, new bugs)
 
 ## License
 
