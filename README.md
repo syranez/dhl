@@ -38,12 +38,11 @@ Get delivery progress.
 
 The version scheme is this:
 
-<<<<<<< HEAD
     {major-release}-{feature-release}-{bugfixes/maintaining}
 
-__Major­release numbers__ do not change so much. Indeed I have no plans to use some other digit than 1.
-__Feature-release numbers__ change if I introduce new features (e. g. the ups feature pushed dhl to 1.2.0 from 1.1.1).
-__Bugfixes/maintaining numbers__ increment every time I fix or do some maintaining stuff. Nothing is intended to break.
+__Major­release numbers__ do not change so much. Indeed I have no plans to use some other digit than 1.  
+__Feature-release numbers__ change if I introduce new features (e. g. the ups feature pushed dhl to 1.2.0 from 1.1.1).  
+__Bugfixes/maintaining numbers__ increment every time I fix or do some maintaining stuff. Nothing is intended to break.  
 
 If you are using dhl as dependency in your module, you have this version options:
 
@@ -52,23 +51,6 @@ If you are using dhl as dependency in your module, you have this version options
 * bleeding edge channel, e. g. 1.* or even * (not safe, something will break, new bugs)
 
 If you are not sure, use a fixed version.
-=======
-    {major-release}-{feature-release}-{bugfixes/maintaing}
-
-Major­release numbers do not change so much. Indeed I have no plans to use some other digit than 1.
-Feature-release numbers change if I introduce new features (e. g. the ups feature pushed dhl to 1.2.0 from 1.1.1).
-Bugfixes/maintaining numbers increment every time I fix or do some maintaining stuff. Nothing is intended to break.
-
-* dhl as dependency in a node module
-
-Therefore you can safely glob the last part of version, benefiting of bugfixes and 
-
-You can of course use dhl as dependency in your module. You have this version options:
-
-* hard version, e. g. 1.2.0 (very safe, nothing breaks, but you will not get new stuff)
-* bugfixes version, e. g. 1.2.* (safe, nothing __should__ break, bugs will be fixed.)
-* bleeding edge version, e. g. 1.* or even * (not safe, something will break, new bugs)
->>>>>>> 77b6d3d3c1bcf04d2ba510599ce4321cac8e11d9
 
 ## License
 
