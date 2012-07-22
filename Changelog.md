@@ -1,3 +1,8 @@
+## 1.2.0 (aka the ups release)
+
+* dhl can track ups packets now
+* tests added
+
 ## 1.1.2-beat (aka ups feature)
 
 * status of ups packet is retrieved now
