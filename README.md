@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/syranez/dhl.png)](http://travis-ci.org/syranez/dhl)
 # dhl
 
 Querys the tracking page of a delivery service for the status of a sent package.
