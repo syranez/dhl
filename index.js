@@ -1,6 +1,7 @@
 var _    = require('underscore');
 var nolp = require('./lib/nolp/nolp.js');
 var ups  = require('./lib/ups/ups.js');
+var usps  = require('./lib/usps/usps.js');
 
 /**
  * available delivery services
@@ -10,7 +11,8 @@ var ups  = require('./lib/ups/ups.js');
  */
 var availableServices = [
     "dhl",
-    "ups"
+    "ups",
+    "usps"
 ];
 
 /**
@@ -183,6 +185,8 @@ function getDeliveryService (serviceName) {
         return nolp;
     case "ups":
         return ups;
+    case "usps":
+        return usps;
     }
 
     return null;
