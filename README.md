@@ -26,6 +26,7 @@ Get delivery progress.
 
 * dhl
 * ups
+* usps
 
 ## Installation
 `npm install dhl`
